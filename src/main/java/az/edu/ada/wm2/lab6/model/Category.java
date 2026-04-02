@@ -2,8 +2,9 @@ package az.edu.ada.wm2.lab6.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import java.util.HashSet;
-import java.util.Set;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -23,5 +24,5 @@ public class Category {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @Builder.Default
-    private Set<Product> products = new HashSet<>();
+    private List<Product> products = new ArrayList<>();
 }

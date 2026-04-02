@@ -54,16 +54,11 @@ public class CategoryServiceImpl implements CategoryService {
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new RuntimeException("Product not found with id: " + productId));
 
-        if (category.getProducts() != null && !category.getProducts().contains(product)) {
-            category.getProducts().add(product);
-        }
+        category.getProducts().add(product);
+        product.getCategories().add(category);
 
-        if (product.getCategories() != null && !product.getCategories().contains(category)) {
-            product.getCategories().add(category);
-        }
-
-        Category updatedCategory = categoryRepository.save(category);
-        return CategoryMapper.toResponseDto(updatedCategory);
+        categoryRepository.save(category);
+        return CategoryMapper.toResponseDto(category);
     }
 
     @Override
