@@ -1,4 +1,4 @@
-package main.java.az.edu.ada.wm2.lab6.model;
+package az.edu.ada.wm2.lab6.model;
 
 import jakarta.persistence.*;
 import lombok.*;
